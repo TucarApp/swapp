@@ -84,7 +84,7 @@ const NavbarWithExpandableMenu = () => {
           </div>
 
           {/* Botones de acción */}
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-12">
             <button className="text-white text-lg font-medium hover:underline">
               Compra ahora
             </button>
@@ -96,10 +96,10 @@ const NavbarWithExpandableMenu = () => {
       </header>
 
       {/* Texto principal */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 text-white text-center">
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-          This Christmas, <br />
-          make your move
+      <div className="relative z-10 flex flex-col items-start justify-center h-full px-6 pt-14 text-white text-center">
+        <h1 className="text-4xl md:text-8xl font-bold leading-tight text-left">
+       
+          Make your <br /> move
         </h1>
         <button className="mt-4 bg-black text-white px-4 py-2 rounded-lg hover:bg-opacity-80">
           Reserva una prueba &rarr;

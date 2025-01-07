@@ -5,7 +5,7 @@ import Logo2 from '../Logos/Logo2'
 const Footer = () => {
     return (
       <footer className="bg-gray-50 py-10">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Nosotros */}
             <div>
@@ -50,7 +50,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="mt-10 flex justify-between items-center border-t border-gray-200 pt-6">
+          <div className="mt-10 flex justify-between items-center  border-gray-200 pt-6">
             {/* Logo */}
             <Logo2 />
             <div>
