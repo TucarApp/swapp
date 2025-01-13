@@ -32,11 +32,11 @@ const CustomSwiper = styled(Swiper)`
   }
 
   .swiper-button-prev {
-    left:280px;
+    left:60px;
   }
 
   .swiper-button-next {
-    right:280px;
+    right:65px;
   }
 `;
 
@@ -93,11 +93,11 @@ const VehicleCarousel = () => {
         {/* Swiper Carrusel */}
         <div className="relative overflow-hidden">
           <CustomSwiper
-            modules={[ Navigation]}
+            modules={[Navigation]}
             
             navigation
             initialSlide={1} 
-            spaceBetween={-250}
+            spaceBetween={-20}
             slidesPerView={1.5}
             centeredSlides={true}
             onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)} 

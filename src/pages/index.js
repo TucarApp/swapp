@@ -2,8 +2,9 @@ import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import Mick from "@/components/Mick";
+import BatterySection from "@/components/BatterySection";
 import CarouselSection from "@/components/CarruselSelection";
+import CarruselSelectionMobile from "@/components/CarruselSelectionMobile";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,9 +20,13 @@ export default function Home() {
   return (
     <div>
       <Navbar />
+      <div className="hidden md:inline">
       <CarouselSection />
-      <Mick />
-
+      </div>
+      <div className="md:hidden">
+        <CarruselSelectionMobile />
+      </div>
+      <BatterySection />
       <Footer />
     </div>
   );
