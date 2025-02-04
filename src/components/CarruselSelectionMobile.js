@@ -1,9 +1,14 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Navigation, Mousewheel } from 'swiper/modules';
-import { useState } from 'react';
-import styled from 'styled-components';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation, Mousewheel } from "swiper/modules";
+import { useState } from "react";
+import styled from "styled-components";
+
+// ICONS
+import { LuWind } from "react-icons/lu";
+import { MdOutlineSpeed } from "react-icons/md";
+import { MdElectricBolt } from "react-icons/md";
 
 // Styled Swiper Container
 const CustomSwiper = styled(Swiper)`
@@ -32,41 +37,41 @@ const CustomSwiper = styled(Swiper)`
   }
 
   .swiper-button-prev {
-    left:60px;
+    left: 60px;
   }
 
   .swiper-button-next {
-    right:65px;
+    right: 65px;
   }
 `;
 
 const VehicleCarousel = () => {
-  const [activeSlide, setActiveSlide] = useState(1); // Inicializa el slide activo en el índice 1 (slide 2)
+  const [activeSlide, setActiveSlide] = useState(1);
 
   const slidesData = [
     {
-      name: 'S01',
-      subname: 'Dinamismo y performance',
-      image: '/vs3/1.webp',
-      acceleration: '3.6s',
-      maxSpeed: '100km/h',
-      autonomy: '133km',
+      name: "S01",
+      subname: "Dinamismo y performance",
+      image: "/vs3/1.webp",
+      acceleration: "3.6s",
+      maxSpeed: "100km/h",
+      autonomy: "133km",
     },
     {
-      name: 'S01+',
-      subname: 'Deportividad silenciosa',
-      image: '/vs3/2.webp',
-      acceleration: '4.0s',
-      maxSpeed: '95km/h',
-      autonomy: '120km',
+      name: "S01+",
+      subname: "Deportividad silenciosa",
+      image: "/vs3/2.webp",
+      acceleration: "4.0s",
+      maxSpeed: "95km/h",
+      autonomy: "120km",
     },
     {
-      name: 'S02',
-      subname: 'Comodidad urbana',
-      image: '/vs3/3.webp',
-      acceleration: '3.2s',
-      maxSpeed: '105km/h',
-      autonomy: '140km',
+      name: "S02",
+      subname: "Comodidad urbana",
+      image: "/vs3/3.webp",
+      acceleration: "3.2s",
+      maxSpeed: "105km/h",
+      autonomy: "140km",
     },
   ];
 
@@ -75,11 +80,15 @@ const VehicleCarousel = () => {
       <div className="w-full">
         {/* Título y descripción */}
         <div className="text-center mb-8">
-          <div className='flex justify-center gap-x-2'>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#333333]">{slidesData[activeSlide].name}</h2>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-400">{slidesData[activeSlide].subname}</h2>
+          <div className="flex justify-center gap-x-2">
+            <h2 className="text-xl md:text-4xl font-bold text-[#333333]">
+              {slidesData[activeSlide].name}
+            </h2>
+            <h2 className="text-xl md:text-4xl font-bold text-gray-400">
+              {slidesData[activeSlide].subname}
+            </h2>
           </div>
-          
+
           <div className="mt-4 flex justify-center space-x-4">
             <button className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition">
               Probar &rarr;
@@ -94,16 +103,14 @@ const VehicleCarousel = () => {
         <div className="relative overflow-hidden">
           <CustomSwiper
             modules={[Navigation]}
-            
             navigation
-            initialSlide={1} 
+            initialSlide={1}
             spaceBetween={-20}
             slidesPerView={1.5}
             centeredSlides={true}
-            onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)} 
+            onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
             className="cursor-grab active:cursor-grabbing"
           >
-           
             {slidesData.map((slide, index) => (
               <SwiperSlide key={index}>
                 <div className="flex flex-col items-center text-center">
@@ -121,18 +128,40 @@ const VehicleCarousel = () => {
         </div>
 
         {/* Texto dinámico */}
-        <div className="mt-6 flex justify-center space-x-8 text-center">
+        <div className="mt-6 flex justify-center space-x-8 text-center  px-5">
           <div>
-            <p className="text-xl font-bold text-red-600">{slidesData[activeSlide].acceleration}</p>
+            <div className="flex justify-center items-center gap-x-2">
+              <LuWind className="text-4xl mt-[-4px] text-red-600" size={20} />
+              <p className="text-lg font-bold text-red-600">
+                {slidesData[activeSlide].acceleration}
+              </p>
+            </div>
             <p className="text-sm text-gray-600">Aceleración 0-50km/h</p>
           </div>
           <div>
-            <p className="text-xl font-bold text-red-600">{slidesData[activeSlide].maxSpeed}</p>
+            <div className="flex justify-center items-center gap-x-2">
+              <MdOutlineSpeed
+                className="text-4xl mt-[-4px] text-red-600"
+                size={20}
+              />
+              <p className="text-lg font-bold text-red-600">
+                {slidesData[activeSlide].maxSpeed}
+              </p>
+            </div>
             <p className="text-sm text-gray-600">Velocidad máxima</p>
           </div>
           <div>
-            <p className="text-xl font-bold text-red-600">{slidesData[activeSlide].autonomy}</p>
-            <p className="text-sm text-gray-600">Autonomía WMTC</p>
+            <div className="flex justify-center items-center gap-x-2">
+              <MdElectricBolt
+                className="text-4xl mt-[-4px] text-red-600"
+                size={20}
+              />
+            
+              <p className="text-lg font-bold text-red-600">
+                {slidesData[activeSlide].autonomy}
+              </p>
+            </div>
+            <p className="text-sm text-gray-600">Autonomía MTC</p>
           </div>
         </div>
       </div>

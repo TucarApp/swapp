@@ -1,4 +1,9 @@
 import Logo2 from '../Logos/Logo2'
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa6";
 
 
 
@@ -50,20 +55,22 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="mt-10 flex justify-between items-center  border-gray-200 pt-6">
+          <div className="mt-10  flex  justify-between items-center  border-gray-200 pt-6">
             {/* Logo */}
-            <Logo2 />
-            <div>
+            <Logo2  width={200}/>
             
+          
+           
+          </div>
+          <div className='mt-[15px] flex gap-x-[15px]'>
+          <FaFacebook color='#333333' size={23} />
+          <FaInstagram  color='#333333' size={23}/>
+          <FaXTwitter color='#333333' size={23} />
+          <FaLinkedin color='#333333' size={23} />
+          <FaYoutube color='#333333' size={23} />
 
-            </div>
-            {/* Modelos */}
-            <div className="flex space-x-4 text-2xl font-bold text-gray-800">
-              <span>S01+</span>
-              <span>S01</span>
-              <span>S02</span>
-              <span>S04</span>
-            </div>
+
+
           </div>
         </div>
       </footer>
