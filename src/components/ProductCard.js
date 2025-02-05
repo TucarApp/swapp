@@ -43,7 +43,7 @@ function ProductCard() {
             />
           </div>
         </div>
-        {/* <div className="flex items-center justify-between bg-white shadow-md rounded-lg p-6 w-full max-w-lg border border-gray-200">
+        <div className="flex items-center justify-between bg-white shadow-md rounded-lg p-6 w-full max-w-lg border border-gray-200">
           <div className="flex flex-col">
             <h2 className="text-2xl font-bold text-black">S02</h2>
             <div className="flex items-center mt-4 space-x-6">
@@ -62,7 +62,7 @@ function ProductCard() {
               className="w-40 h-auto object-contain"
             />
           </div>
-        </div> */}
+        </div>
         
         </div>
       );

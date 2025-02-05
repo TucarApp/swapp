@@ -9,6 +9,16 @@ const NavbarWithExpandableMenu = () => {
 
   const [selectedVehicle, setSelectedVehicle] = useState("S01+");
 
+  const [activeImage, setActiveImage] = useState("/silence/bateria.webp");
+
+  const menuImages = {
+    "Batería": "/silence/bateria.webp",
+    "Battery Stations": "/silence/batterystations.webp",
+    "App MySilence": "/silence/appsilence.webp",
+    "Configurador": "/silence/configurador.webp",
+    "Reserva una prueba": "/silence/5.webp",
+  };
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
     setIsVehiclesMenuOpen(false);
@@ -136,25 +146,21 @@ const NavbarWithExpandableMenu = () => {
 
               {isDesktopMenuOpen && (
                 <div className="absolute left-0 top-full bg-transparent pt-[30px]">
-                  <div className="mt-3 bg-white shadow-lg p-12 rounded-lg w-[1350px] z-50 border border-gray-200 flex">
+                  <div className="mt-3 bg-white shadow-lg p-12 rounded-lg w-[1600px] h-[700px] z-50 border border-gray-200 flex">
                     {/* Sección de texto */}
                     <div className="w-1/2 pr-16">
                       <ul className="space-y-4 text-black text-4xl font-bold">
-                        <li className="text-gray-300 font-semibold hover:text-black transition-colors duration-200 cursor-pointer">
-                          Batería
-                        </li>
-                        <li className="text-gray-300 font-bold hover:text-black transition-colors duration-200 cursor-pointer">
-                          Battery Stations
-                        </li>
-                        <li className="text-gray-300 hover:text-black transition-colors duration-200 cursor-pointer">
-                          App MySilence
-                        </li>
-                        <li className="text-gray-300 hover:text-black transition-colors duration-200 cursor-pointer">
-                          Configurador
-                        </li>
-                        <li className="text-gray-300 hover:text-black transition-colors duration-200 cursor-pointer">
-                          Reserva una prueba
-                        </li>
+                        {Object.keys(menuImages).map((item) => (
+                          <li
+                            key={item}
+                            className="text-gray-300 font-semibold hover:text-black transition-colors duration-200 cursor-pointer"
+                            onMouseEnter={() =>
+                              setActiveImage(menuImages[item])
+                            } // Cambia la imagen al hacer hover
+                          >
+                            {item}
+                          </li>
+                        ))}
                       </ul>
 
                       <p className="text-red-600 mt-6 font-semibold text-2xl">
@@ -167,12 +173,12 @@ const NavbarWithExpandableMenu = () => {
                       </ul>
                     </div>
 
-                    {/* Sección de imagen */}
+                    {/* Sección de imagen dinámica */}
                     <div className="w-1/2 flex justify-center items-center">
                       <img
-                        src="/battery-image.jpg"
-                        alt="Batería"
-                        className="rounded-2xl shadow-lg w-[90%] h-auto object-cover"
+                        src={activeImage}
+                        alt="Sección activa"
+                        className="rounded-2xl shadow-lg w-[65%] h-auto object-cover transition-opacity duration-500"
                       />
                     </div>
                   </div>
@@ -184,60 +190,50 @@ const NavbarWithExpandableMenu = () => {
 
             {/* Vehículos */}
             <div
-  className="relative z-50"
-  onMouseEnter={() => setIsVehiclesMenuOpen(true)}
-  onMouseLeave={() => setIsVehiclesMenuOpen(false)}
->
-  <button
-    className={`relative text-lg font-medium flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out
-    ${isVehiclesMenuOpen ? "bg-white text-black shadow-lg" : "text-white"}
-    hover:bg-white hover:text-black hover:shadow-lg`}
-  >
-    <span className="relative">Vehículos</span>
-  </button>
-
-  {isVehiclesMenuOpen && (
-    <div className="absolute left-0 top-full bg-transparent pt-[30px]">
-      <div className="mt-3 bg-white shadow-lg p-12 rounded-lg w-[1350px] h-[580px] z-50 border border-gray-200 flex">
-        {/* Sección de Vehículos */}
-        <div className="grid grid-cols-4 gap-6">
-          {vehicles.map((vehicle) => (
-            <div
-              key={vehicle.id}
-              className={`p-6 rounded-lg transition-all duration-500 ease-in-out flex flex-col items-center justify-center 
-              ${
-                selectedVehicle === vehicle.id
-                  ? "bg-white shadow-xl"
-                  : "opacity-50 hover:opacity-100"
-              }`}
-              onMouseEnter={() => setSelectedVehicle(vehicle.id)}
-              onClick={() => setSelectedVehicle(vehicle.id)}
+              className="relative z-50"
+              onMouseEnter={() => setIsVehiclesMenuOpen(true)}
+              onMouseLeave={() => setIsVehiclesMenuOpen(false)}
             >
-              <img
-                src={vehicle.img}
-                alt={vehicle.name}
-                className="w-[150px] h-auto"
-              />
-              <h3 className={`mt-4 text-2xl font-bold`}>
-                {vehicle.name}
-              </h3>
-              {selectedVehicle === vehicle.id && (
-                <div className="flex mt-4 space-x-4">
-                  <button className="bg-gray-100 text-black px-4 py-2 rounded-lg hover:bg-gray-200">
-                    Probar →
-                  </button>
-                  <button className="bg-black text-white px-4 py-2 rounded-lg hover:bg-opacity-80">
-                    Configurar →
-                  </button>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+              <button
+                className={`relative text-lg font-medium flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out
+               ${isVehiclesMenuOpen ? "bg-white text-black shadow-lg" : "text-white"}
+               hover:bg-white hover:text-black hover:shadow-lg`}
+              >
+                <span className="relative">Vehículos</span>
+              </button>
+
+              {isVehiclesMenuOpen && (
+  <div className="absolute left-0 top-full bg-transparent pt-[30px] w-full flex justify-center">
+    <div className="mt-3 bg-white shadow-lg p-12 rounded-lg  min-w-[1600px] ml-[1300px] h-[580px] z-50 border border-gray-200 flex justify-center">
+      {/* Sección de Vehículos */}
+      <div className="grid grid-cols-4 gap-6 w-full">
+        {vehicles.map((vehicle) => (
+          <div
+            key={vehicle.id}
+            className={`p-6 rounded-lg transition-all duration-500 ease-in-out flex flex-col items-center justify-center 
+            ${
+              selectedVehicle === vehicle.id
+                ? "bg-white shadow-xl"
+                : "opacity-50 hover:opacity-100"
+            }`}
+            onMouseEnter={() => setSelectedVehicle(vehicle.id)}
+            onClick={() => setSelectedVehicle(vehicle.id)}
+          >
+            <img
+              src={vehicle.img}
+              alt={vehicle.name}
+              className="w-[250px] h-auto"
+            />
+            <h3 className="mt-4 text-2xl font-bold">{vehicle.name}</h3>
+           
+          </div>
+        ))}
       </div>
     </div>
-  )}
-</div>
+  </div>
+)}
+
+            </div>
           </div>
 
           {/* Logo centrado de forma correcta */}
