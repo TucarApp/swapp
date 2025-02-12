@@ -35,10 +35,10 @@ const BatteryStationsSection = () => {
   }, [inView]);
 
   return (
-    <section className="bg-gray-100 py-16">
-      <div className="container mx-auto flex flex-col justify-center items-center  md:flex-start md:flex-row">
+    <section className="bg-gray-100 py-16 ">
+      <div className="container mx-auto flex flex-col justify-center items-center   md:flex-start md:flex-row">
         {/* Contenido de texto */}
-        <div className="md:w-1/2 px-6 text-center md:text-left" ref={ref}>
+        <div className="md:w-1/2 mx-40 px-6 text-center md:text-left" ref={ref}>
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
             Battery Stations
           </h2>

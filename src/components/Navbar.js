@@ -12,10 +12,10 @@ const NavbarWithExpandableMenu = () => {
   const [activeImage, setActiveImage] = useState("/silence/bateria.webp");
 
   const menuImages = {
-    "Batería": "/silence/bateria.webp",
+    Batería: "/silence/bateria.webp",
     "Battery Stations": "/silence/batterystations.webp",
     "App MySilence": "/silence/appsilence.webp",
-    "Configurador": "/silence/configurador.webp",
+    Configurador: "/silence/configurador.webp",
     "Reserva una prueba": "/silence/5.webp",
   };
 
@@ -145,8 +145,8 @@ const NavbarWithExpandableMenu = () => {
               </button>
 
               {isDesktopMenuOpen && (
-                <div className="absolute left-0 top-full bg-transparent pt-[30px]">
-                  <div className="mt-3 bg-white shadow-lg p-12 rounded-lg w-[1600px] h-[700px] z-50 border border-gray-200 flex">
+                <div className="absolute left-0 top-full bg-transparent pt-[15px]">
+                  <div className="mt-3 bg-white shadow-lg p-12 rounded-lg w-[1300px] h-[550px] z-50 border border-gray-200 flex">
                     {/* Sección de texto */}
                     <div className="w-1/2 pr-16">
                       <ul className="space-y-4 text-black text-4xl font-bold">
@@ -196,43 +196,47 @@ const NavbarWithExpandableMenu = () => {
             >
               <button
                 className={`relative text-lg font-medium flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out
-               ${isVehiclesMenuOpen ? "bg-white text-black shadow-lg" : "text-white"}
+               ${
+                 isVehiclesMenuOpen
+                   ? "bg-white text-black shadow-lg"
+                   : "text-white"
+               }
                hover:bg-white hover:text-black hover:shadow-lg`}
               >
                 <span className="relative">Vehículos</span>
               </button>
 
               {isVehiclesMenuOpen && (
-  <div className="absolute left-0 top-full bg-transparent pt-[30px] w-full flex justify-center">
-    <div className="mt-3 bg-white shadow-lg p-12 rounded-lg  min-w-[1600px] ml-[1300px] h-[580px] z-50 border border-gray-200 flex justify-center">
-      {/* Sección de Vehículos */}
-      <div className="grid grid-cols-4 gap-6 w-full">
-        {vehicles.map((vehicle) => (
-          <div
-            key={vehicle.id}
-            className={`p-6 rounded-lg transition-all duration-500 ease-in-out flex flex-col items-center justify-center 
+                <div className="absolute left-0 top-full bg-transparent pt-[15px] w-full flex justify-center">
+                  <div className="mt-3 bg-white shadow-lg p-12 rounded-lg  min-w-[1300px] ml-[1000px] h-[550px] z-50 border border-gray-200 flex justify-center">
+                    {/* Sección de Vehículos */}
+                    <div className="grid grid-cols-4 gap-6 w-full">
+                      {vehicles.map((vehicle) => (
+                        <div
+                          key={vehicle.id}
+                          className={`p-6 rounded-lg transition-all duration-500 ease-in-out flex flex-col items-center justify-center 
             ${
               selectedVehicle === vehicle.id
                 ? "bg-white shadow-xl"
                 : "opacity-50 hover:opacity-100"
             }`}
-            onMouseEnter={() => setSelectedVehicle(vehicle.id)}
-            onClick={() => setSelectedVehicle(vehicle.id)}
-          >
-            <img
-              src={vehicle.img}
-              alt={vehicle.name}
-              className="w-[250px] h-auto"
-            />
-            <h3 className="mt-4 text-2xl font-bold">{vehicle.name}</h3>
-           
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-)}
-
+                          onMouseEnter={() => setSelectedVehicle(vehicle.id)}
+                          onClick={() => setSelectedVehicle(vehicle.id)}
+                        >
+                          <img
+                            src={vehicle.img}
+                            alt={vehicle.name}
+                            className="w-[250px] h-auto"
+                          />
+                          <h3 className="mt-4 text-2xl font-bold">
+                            {vehicle.name}
+                          </h3>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -303,7 +307,7 @@ const NavbarWithExpandableMenu = () => {
 
       {/* Texto principal */}
       <div className="relative  flex flex-col items-start justify-center h-full px-6 pt-[250px] md:pt-[155px] text-white text-left">
-        <h1 className="text-[4xl] md:text-[190px] font-bold leading-tight md:leading-[160px]">
+        <h1 className="text-[4xl] md:text-[130px] font-bold leading-tight md:leading-[140px]">
           Make your <br /> move
         </h1>
         <button className="mt-4 bg-black text-white px-4 py-2 rounded-lg hover:bg-opacity-80">
@@ -312,6 +316,7 @@ const NavbarWithExpandableMenu = () => {
       </div>
     </div>
   );
+  n;
 };
 
 export default NavbarWithExpandableMenu;
