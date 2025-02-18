@@ -1,0 +1,14 @@
+services:
+  api:
+    container_name: "api"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - ./.env
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+    restart: always
+    command: npm run dev
