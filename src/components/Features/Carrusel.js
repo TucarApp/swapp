@@ -5,6 +5,8 @@ import {
     CarouselNext,
     CarouselPrevious,
   } from "@/components/ui/carousel"
+
+  /// GOATSLEXIS
   
   const images = [
     {
