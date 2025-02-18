@@ -136,7 +136,7 @@ const VehicleCarousel = () => {
                 {slidesData[activeSlide].acceleration}
               </p>
             </div>
-            <p className="text-sm text-gray-600">Aceleración 0-50km/h</p>
+            <p className="text-sm text-gray-600">Aceleración 0-50 km/h</p>
           </div>
           <div>
             <div className="flex justify-center items-center gap-x-2">

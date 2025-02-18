@@ -50,23 +50,23 @@ const VehicleCarousel = () => {
 
   const slidesData = [
     {
-      name: "S01",
-      subname: "Dinamismo y performance",
+      name: "CPX",
+      subname: "Comfort y performance",
       image: "/vs3/1.webp",
       acceleration: "3.6s",
       maxSpeed: "100km/h",
       autonomy: "133km",
     },
     {
-      name: "S01+",
-      subname: "Deportividad silenciosa",
+      name: "VS1",
+      subname: "Ágilidad para entregas ",
       image: "/vs3/2.webp",
       acceleration: "4.0s",
       maxSpeed: "95km/h",
       autonomy: "120km",
     },
     {
-      name: "S02",
+      name: "VS3 Heavy Duty",
       subname: "Comodidad urbana",
       image: "/vs3/3.webp",
       acceleration: "3.2s",

@@ -1,0 +1,51 @@
+{
+    "steps": [
+      {
+        "name": "gcr.io/cloud-builders/docker",
+        "entrypoint": "bash",
+        "args": [
+          "-c",
+          "docker pull us-docker.pkg.dev/$PROJECT_ID/pagina-swapp/pagina-swapp-image:latest || exit 0"
+        ]
+      },
+      {
+        "name": "gcr.io/cloud-builders/docker",
+        "args": [
+          "build",
+          "-t",
+          "us-docker.pkg.dev/$PROJECT_ID/pagina-swapp/pagina-swapp-image:latest",
+          "--cache-from",
+          "us-docker.pkg.dev/$PROJECT_ID/pagina-swapp/pagina-swapp-image:latest",
+          "--build-arg",
+          "NEXT_PUBLIC_APP=staging",
+          "-f",
+          "./Dockerfile",
+          "."
+        ]
+      },
+      {
+        "name": "gcr.io/cloud-builders/docker",
+        "args": [
+          "push",
+          "us-docker.pkg.dev/$PROJECT_ID/pagina-swapp/pagina-swapp-image:latest"
+        ]
+      },
+      {
+        "name": "gcr.io/google.com/cloudsdktool/cloud-sdk",
+        "entrypoint": "gcloud",
+        "args": [
+          "run",
+          "deploy",
+          "pagina-swapp",
+          "--image",
+          "us-docker.pkg.dev/$PROJECT_ID/pagina-swapp/pagina-swapp-image:latest",
+          "--region",
+          "us-central1"
+        ]
+      }
+    ],
+    "images": [
+      "us-docker.pkg.dev/$PROJECT_ID/pagina-swapp/pagina-swapp-image:latest"
+    ],
+    "timeout": "1000s"
+  }

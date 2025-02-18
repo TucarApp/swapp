@@ -25,14 +25,15 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="py-20 px-4 bg-white">
+
+    <section className="py-20 px-4 bg-white pt-[120px]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-[#333333]">
             Características Principales
           </h2>
           <p className="text-lg text-gray-600">
-            Descubre por qué la S01+ es la mejor opción para moverse por la ciudad
+            Descubre por qué la VS1 es la mejor opción para moverse por la ciudad
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
