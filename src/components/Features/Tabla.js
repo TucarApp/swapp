@@ -1,6 +1,6 @@
 export default function ComparisonTable() {
     return (
-      <div className="overflow-x-auto bg-white">
+      <div className="overflow-x-auto bg-white px-[15px] md:px-28 text-[12px]">
         <table className="w-full text-left text-gray-800">
           {/* Encabezados */}
           <thead>

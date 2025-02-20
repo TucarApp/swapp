@@ -10,25 +10,45 @@ import {
   
   const images = [
     {
-      url: "/vs3/1.webp",
-      alt: "S01+ Vista Frontal",
-      angle: "0°"
+      url: "/VS1/VS1-neon1.webp",
+      alt: "Moto vs3",
+      angle: "0°",
     },
     {
-      url: "/vs3/2.webp",
-      alt: "S01+ Vista Lateral Derecha",
-      angle: "90°"
+      url: "/VS1/VS1-neon2.webp",
+      alt: "Moto vs3",
+      angle: "0°",
     },
     {
-      url: "/vs3/3.webp",
-      alt: "S01+ Vista Trasera",
-      angle: "180°"
+      url: "/VS1/VS1-neon3.webp",
+      alt: "Moto vs3",
+      angle: "0°",
     },
     {
-      url: "/vs3/4.webp",
-      alt: "S01+ Vista Lateral Izquierda",
-      angle: "270°"
-    }
+      url: "/VS1/VS1-neon4.webp",
+      alt: "Moto vs3",
+      angle: "0°",
+    },
+    {
+      url: "/VS1/VS1-neon5.webp",
+      alt: "Moto vs3",
+      angle: "0°",
+    },
+    {
+      url: "/VS1/VS1-neon6.webp",
+      alt: "Moto vs3",
+      angle: "0°",
+    },
+    {
+      url: "/VS1/VS1-neon7.webp",
+      alt: "Moto vs3",
+      angle: "0°",
+    },
+    {
+      url: "/VS1/VS1-neon8.webp",
+      alt: "Moto vs3",
+      angle: "0°",
+    },
   ];
   
   const Carousel360 = () => {
