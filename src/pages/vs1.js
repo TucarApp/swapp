@@ -4,6 +4,8 @@ import Carrusel from "../components/Features/Carrusel";
 
 import Tabla from '../components/Features/Tabla';
 
+import Layouts from "../layouts/Layouts";
+
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
 
@@ -20,7 +22,7 @@ const Hero = () => {
   };
 
   return (
-    <div>
+    <Layouts>
       <div className="relative flex items-center justify-center h-screen bg-gradient-to-b from-gray-200 to-white">
         {/* Texto detrás */}
         <h1 className="absolute top-10 text-[10rem] font-bold text-gray-300 opacity-50 z-0">
@@ -31,7 +33,7 @@ const Hero = () => {
         <img
           src="/VS1/vs1hd.png" // Reemplázalo con tu imagen
           alt="Moto vs1"
-          className="relative z-10 w-[40rem]"
+          className="relative z-10 w-[40rem] pt-28"
         />
       </div>
 
@@ -86,7 +88,7 @@ const Hero = () => {
         <Carrusel />
         <Tabla />
       
-    </div>
+    </Layouts>
   );
 };
 

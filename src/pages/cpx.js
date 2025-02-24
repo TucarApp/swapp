@@ -3,12 +3,14 @@ import Features from "@/components/CPX/Features";
 import Carrusel from "@/components/CPX/Carrusel";
 import Tabla from '../components/Features/Tabla';
 import NavbarSections from "@/components/Navbar/NavbarSections";
+import Layout from "@/layouts/Layouts";
 
 function cpx() {
   return (
-    <div>
-        <NavbarSections />
-      <div className="relative flex items-center justify-center h-screen bg-gradient-to-b from-gray-200 to-white">
+    <Layout>
+        <div className="pb-[95px]">
+       
+      <div className="relative flex items-center justify-center h-screen bg-gradient-to-b from-gray-200 to-white pt-32">
         {/* Texto detrás */}
         <h1 className="absolute top-10 text-[10rem] font-bold text-gray-300 opacity-50 z-0">
           CPX
@@ -73,7 +75,8 @@ function cpx() {
         <Carrusel />
         <Tabla />
       </div>
-    </div>
+      </div>
+    </Layout>
   );
 }
 

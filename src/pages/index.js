@@ -1,7 +1,6 @@
-import Image from "next/image";
+
 import { Geist, Geist_Mono } from "next/font/google";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import LayoutHome from "../layouts/LayoutHome"
 import BatterySection from "@/components/BatterySection";
 import CarouselSection from "@/components/CarruselSelection";
 import CarruselSelectionMobile from "@/components/CarruselSelectionMobile";
@@ -18,8 +17,8 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   return (
-    <div>
-      <Navbar />
+    <LayoutHome>
+     
       <div className="hidden md:inline">
       <CarouselSection />
       </div>
@@ -27,7 +26,7 @@ export default function Home() {
         <CarruselSelectionMobile />
       </div>
       <BatterySection />
-      <Footer />
-    </div>
+     
+    </LayoutHome>
   );
 }

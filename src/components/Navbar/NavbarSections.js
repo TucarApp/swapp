@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "../ProductCard";
 import Logo2 from "../../Logos/Logo2";
+import Link from "next/link";
 
 const NavbarWithExpandableMenu = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,10 +38,10 @@ const NavbarWithExpandableMenu = () => {
   const [logoSrc, setLogoSrc] = useState("/Logo_w.svg"); // Logo por defecto
 
   const vehicles = [
-    { id: "CPX", name: "CPX", img: "/CPX/cpxcostado.webp" },
-    { id: "VS1", name: "VS1", img: "/VS1/vs1costado.png" },
-    { id: "VS3", name: "VS3", img: "/VS3/VS3.webp" },
-    { id: "Al-KO", name: "Al-KO", img: "/vs3/1.webp" },
+    { id: "cpx", name: "CPX", img: "/CPX/cpxcostado.webp" },
+    { id: "vs1", name: "VS1", img: "/VS1/vs1costado.png" },
+    { id: "vs3", name: "VS3", img: "/VS3/VS3.webp" },
+    { id: "S04", name: "S04", img: "/vs3/1.webp" },
   ];
 
   useEffect(() => {
@@ -55,7 +56,7 @@ const NavbarWithExpandableMenu = () => {
   return (
     <div className="relative">
       {/* Navbar */}
-      <header className="fixed top-0 w-full h-[80px] bg-[#1F1F1F] shadow-md z-50 flex items-center px-10">
+      <header className="fixed top-0 w-full h-[80px] bg-[#1F1F1F] shadow-md z-50  items-center px-10 hidden md:flex">
         {/* Menú Izquierdo */}
         <div className="flex items-center space-x-8">
           {/* Menú */}
@@ -117,32 +118,38 @@ const NavbarWithExpandableMenu = () => {
           >
             <button
               className={`relative text-lg font-medium flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out
-          ${isVehiclesMenuOpen ? "bg-white text-black shadow-lg" : "text-white"}
-          hover:bg-white hover:text-black hover:shadow-lg`}
+    ${isVehiclesMenuOpen ? "bg-white text-black shadow-lg" : "text-white"}
+    hover:bg-white hover:text-black hover:shadow-lg`}
             >
               <span>Vehículos</span>
             </button>
 
             {isVehiclesMenuOpen && (
               <div className="absolute left-0 top-full bg-transparent pt-[15px] w-full flex justify-center pl-[550px]">
-                <div className="mt-3 bg-white shadow-lg p-12 rounded-lg min-w-[1300px]  h-[410px] z-50 border border-gray-200 flex justify-center">
+                <div className="mt-3 bg-white shadow-lg p-12 rounded-lg min-w-[1300px] h-[410px] z-50 border border-gray-200 flex justify-center">
                   <div className="grid grid-cols-4 gap-6 w-full">
                     {vehicles.map((vehicle) => (
-                     <div
-                     key={vehicle.id}
-                     className={`p-6 rounded-lg transition-all duration-500 ease-in-out flex flex-col items-center justify-between h-[320px]
-                       ${selectedVehicle === vehicle.id ? "bg-white shadow-xl" : "opacity-50 hover:opacity-100"}
-                     `}
-                     onMouseEnter={() => setSelectedVehicle(vehicle.id)}
-                     onClick={() => setSelectedVehicle(vehicle.id)}
-                   >
-                     <img
-                       src={vehicle.img}
-                       alt={vehicle.name}
-                       className="w-[250px] h-[200px] object-contain"
-                     />
-                     <h3 className="mt-4 text-2xl font-bold">{vehicle.name}</h3>
-                   </div>
+                      <Link key={vehicle.id} href={`/${vehicle.id}`} passHref>
+                        <div
+                          className={`p-6 rounded-lg transition-all duration-500 ease-in-out flex flex-col items-center justify-between h-[320px]
+                ${
+                  selectedVehicle === vehicle.id
+                    ? "bg-white shadow-xl"
+                    : "opacity-50 hover:opacity-100"
+                }
+              `}
+                          onMouseEnter={() => setSelectedVehicle(vehicle.id)}
+                        >
+                          <img
+                            src={vehicle.img}
+                            alt={vehicle.name}
+                            className="w-[250px] h-[200px] object-contain"
+                          />
+                          <h3 className="mt-4 text-2xl font-bold">
+                            {vehicle.name}
+                          </h3>
+                        </div>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -153,7 +160,9 @@ const NavbarWithExpandableMenu = () => {
 
         {/* Logo Centrado */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
-          <img src={logoSrc} alt="Logo" className="w-[150px]" />
+          <Link href="/">
+            <img src={logoSrc} alt="Logo" className="w-[150px]" />
+          </Link>
         </div>
 
         {/* Botones de Acción a la Derecha */}
@@ -166,8 +175,64 @@ const NavbarWithExpandableMenu = () => {
           </button>
         </div>
       </header>
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center md:hidden bg-[#1F1F1F]">
+        {/* Botón Vehículos */}
+        <button
+          onClick={toggleVehiclesMenu}
+          className="text-[#ffffff] text-lg font-medium flex items-center space-x-2"
+        >
+          <span>Vehículos</span>
+          <svg
+            className={`w-5 h-5 transition-transform duration-300 ${
+              isVehiclesMenuOpen ? "rotate-180" : "rotate-0"
+            }`}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
 
-      {/* Menú móvil con animación */}
+        {/* Logo */}
+        <div className="text-white text-2xl font-bold">
+          <Link href="/">
+            <img src="/Logo_w.svg" alt="Silence" width={120} />
+          </Link>
+        </div>
+
+        {/* Icono de más opciones */}
+        <button
+          onClick={toggleMobileMenu}
+          className="text-[#ffffff] text-lg font-medium flex items-center space-x-2"
+        >
+          <span>Menu</span>
+          <svg
+            className={`w-5 h-5 transition-transform duration-300 ${
+              isMobileMenuOpen ? "rotate-180" : "rotate-0"
+            }`}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Menú móvil */}
       <div
         className={`fixed inset-0 bg-white z-20 p-6 transform ${
           isMobileMenuOpen
@@ -176,7 +241,9 @@ const NavbarWithExpandableMenu = () => {
         }`}
       >
         <div className="relative flex justify-center items-center py-4">
-          <Logo2 width={160} />
+          <Link href="/">
+            <Logo2 width={160} />
+          </Link>
           <button
             onClick={closeMobileMenu}
             className="absolute right-5 text-black text-4xl font-bold"
@@ -194,7 +261,7 @@ const NavbarWithExpandableMenu = () => {
         </ul>
       </div>
 
-      {/* Menú para Mobile de Vehículos */}
+      {/* Menú móvil Vehículos */}
       <div
         className={`fixed inset-0 bg-white w-screen h-screen z-20 p-6 transition-transform duration-500 ${
           isVehiclesMenuOpen
@@ -203,7 +270,9 @@ const NavbarWithExpandableMenu = () => {
         } md:hidden`}
       >
         <div className="relative flex justify-center items-center py-4">
-          <Logo2 width={160} />
+          <Link href="/">
+            <Logo2 width={160} />
+          </Link>
           <button
             onClick={closeMobileMenu}
             className="absolute right-5 text-black text-4xl font-bold"

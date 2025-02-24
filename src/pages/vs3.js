@@ -3,10 +3,12 @@ import Features from "@/components/VS3/Features";
 import Carrusel from "@/components/VS3/Carrusel";
 import Tabla from '../components/Features/Tabla';
 
+import Layouts from "../layouts/Layouts";
+
 function vs3() {
   return (
-    <div>
-      <div className="relative flex items-center justify-center h-screen bg-gradient-to-b from-gray-200 to-white">
+    <Layouts>
+      <div className="relative flex items-center justify-center h-screen bg-gradient-to-b from-gray-200 to-white pt-20">
         {/* Texto detrás */}
         <h1 className="absolute top-10 text-[10rem] font-bold text-gray-300 opacity-50 z-0">
           VS3
@@ -71,7 +73,7 @@ function vs3() {
         <Carrusel />
         <Tabla />
       </div>
-    </div>
+    </Layouts>
   );
 }
 

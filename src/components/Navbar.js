@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import Logo2 from "../Logos/Logo2";
 
+import Link from 'next/link'
+
 const NavbarWithExpandableMenu = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVehiclesMenuOpen, setIsVehiclesMenuOpen] = useState(false);
@@ -37,9 +39,9 @@ const NavbarWithExpandableMenu = () => {
   const [logoSrc, setLogoSrc] = useState("/Logo_w.svg"); // Logo por defecto
 
   const vehicles = [
-    { id: "S01+", name: "S01+", img: "/vs3/1.webp" },
-    { id: "S01", name: "S01", img: "/vs3/2.webp" },
-    { id: "S02", name: "S02", img: "/vs3/3.webp" },
+    { id: "cpx", name: "CPX", img: "/CPX/cpxcostado.webp" },
+    { id: "vs1", name: "VS1", img: "/VS1/vs1costado.png" },
+    { id: "vs3", name: "VS3", img: "/VS3/VS3.webp" },
     { id: "S04", name: "S04", img: "/vs3/1.webp" },
   ];
 
@@ -95,9 +97,11 @@ const NavbarWithExpandableMenu = () => {
           </button>
 
           {/* Logo */}
+          <Link href='/'>
           <div className="text-white text-2xl font-bold">
             <img src="/Logo_w.svg" alt="Silence" width={120} />
           </div>
+          </Link>
 
           {/* Icono de más opciones */}
           <button
@@ -186,63 +190,60 @@ const NavbarWithExpandableMenu = () => {
               )}
             </div>
 
-            {/* Vehiculos */}
-
             {/* Vehículos */}
             <div
-              className="relative z-50"
-              onMouseEnter={() => setIsVehiclesMenuOpen(true)}
-              onMouseLeave={() => setIsVehiclesMenuOpen(false)}
+            className="relative z-50"
+            onMouseEnter={() => setIsVehiclesMenuOpen(true)}
+            onMouseLeave={() => setIsVehiclesMenuOpen(false)}
+          >
+            <button
+              className={`relative text-lg font-medium flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out
+    ${isVehiclesMenuOpen ? "bg-white text-black shadow-lg" : "text-white"}
+    hover:bg-white hover:text-black hover:shadow-lg`}
             >
-              <button
-                className={`relative text-lg font-medium flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out
-               ${
-                 isVehiclesMenuOpen
-                   ? "bg-white text-black shadow-lg"
-                   : "text-white"
-               }
-               hover:bg-white hover:text-black hover:shadow-lg`}
-              >
-                <span className="relative">Vehículos</span>
-              </button>
+              <span>Vehículos</span>
+            </button>
 
-              {isVehiclesMenuOpen && (
-                <div className="absolute left-0 top-full bg-transparent pt-[15px] w-full flex justify-center">
-                  <div className="mt-3 bg-white shadow-lg p-12 rounded-lg  min-w-[1300px] ml-[1000px] h-[550px] z-50 border border-gray-200 flex justify-center">
-                    {/* Sección de Vehículos */}
-                    <div className="grid grid-cols-4 gap-6 w-full">
-                      {vehicles.map((vehicle) => (
+            {isVehiclesMenuOpen && (
+              <div className="absolute left-0 top-full bg-transparent pt-[15px] w-full flex justify-center pl-[550px]">
+                <div className="mt-3 bg-white shadow-lg p-12 rounded-lg min-w-[1300px] h-[410px] z-50 border border-gray-200 flex justify-center">
+                  <div className="grid grid-cols-4 gap-6 w-full">
+                    {vehicles.map((vehicle) => (
+                      <Link key={vehicle.id} href={`/${vehicle.id}`} passHref>
                         <div
-                          key={vehicle.id}
-                          className={`p-6 rounded-lg transition-all duration-500 ease-in-out flex flex-col items-center justify-center 
-            ${
-              selectedVehicle === vehicle.id
-                ? "bg-white shadow-xl"
-                : "opacity-50 hover:opacity-100"
-            }`}
+                          className={`p-6 rounded-lg transition-all duration-500 ease-in-out flex flex-col items-center justify-between h-[320px]
+                ${
+                  selectedVehicle === vehicle.id
+                    ? "bg-white shadow-xl"
+                    : "opacity-50 hover:opacity-100"
+                }
+              `}
                           onMouseEnter={() => setSelectedVehicle(vehicle.id)}
-                          onClick={() => setSelectedVehicle(vehicle.id)}
                         >
                           <img
                             src={vehicle.img}
                             alt={vehicle.name}
-                            className="w-[250px] h-auto"
+                            className="w-[250px] h-[200px] object-contain"
                           />
                           <h3 className="mt-4 text-2xl font-bold">
                             {vehicle.name}
                           </h3>
                         </div>
-                      ))}
-                    </div>
+                      </Link>
+                    ))}
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
+          </div>
           </div>
 
           {/* Logo centrado de forma correcta */}
+
           <div className="absolute left-1/2 transform -translate-x-1/2">
+          <Link href='/'>
             <img src={logoSrc} alt="Logo" className="w-[150px]" />
+            </Link>
           </div>
 
           <div className="flex items-center space-x-8">
@@ -265,7 +266,9 @@ const NavbarWithExpandableMenu = () => {
         }`}
       >
         <div className="relative flex justify-center items-center py-4">
+          <Link href='/'>
           <Logo2 width={160} />
+          </Link>
           <button
             onClick={closeMobileMenu}
             className="absolute right-5 text-black text-4xl font-bold"
@@ -292,7 +295,9 @@ const NavbarWithExpandableMenu = () => {
         } md:hidden`}
       >
         <div className="relative flex justify-center items-center py-4">
+          <Link href='/'>
           <Logo2 width={160} />
+          </Link>
           <button
             onClick={closeMobileMenu}
             className="absolute right-5 text-black text-4xl font-bold"
