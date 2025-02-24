@@ -50,28 +50,28 @@ const VehicleCarousel = () => {
 
   const slidesData = [
     {
-      name: "S01",
-      subname: "Dinamismo y performance",
-      image: "/vs3/1.webp",
+      name: "CPX",
+      subname: "Comfort y performance",
+      image: "/CPX/cpxcostado.webp",
       acceleration: "3.6s",
-      maxSpeed: "100km/h",
-      autonomy: "133km",
-    },
-    {
-      name: "S01+",
-      subname: "Deportividad silenciosa",
-      image: "/vs3/2.webp",
-      acceleration: "4.0s",
-      maxSpeed: "95km/h",
-      autonomy: "120km",
-    },
-    {
-      name: "S02",
-      subname: "Comodidad urbana",
-      image: "/vs3/3.webp",
-      acceleration: "3.2s",
       maxSpeed: "105km/h",
-      autonomy: "140km",
+      autonomy: "130km",
+    },
+    {
+      name: "VS1",
+      subname: "Ágilidad para entregas ",
+      image: "/VS1/vs1.png",
+      acceleration: "4.0s",
+      maxSpeed: "90km/h",
+      autonomy: "130km",
+    },
+    {
+      name: "VS3 Heavy Duty",
+      subname: "Comodidad urbana",
+      image: "/VS3/VS3.webp",
+      acceleration: "3.2s",
+      maxSpeed: "45km/h",
+      autonomy: "110km",
     },
   ];
 
