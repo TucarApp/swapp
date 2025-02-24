@@ -35,8 +35,7 @@ const NavbarWithExpandableMenu = () => {
     setIsVehiclesMenuOpen(false);
   };
 
-  const [logoSrc, setLogoSrc] = useState("/Logo_w.svg"); // Logo por defecto
-
+  const [logoSrc, setLogoSrc] = useState("/Logo_w.svg"); 
   const vehicles = [
     { id: "cpx", name: "CPX", img: "/CPX/cpxcostado.webp" },
     { id: "vs1", name: "VS1", img: "/VS1/vs1costado.png" },
@@ -45,21 +44,21 @@ const NavbarWithExpandableMenu = () => {
   ];
 
   useEffect(() => {
-    // Aquí puedes definir cuándo cambiar el logo
+   
     if (window.location.pathname.includes("swapp")) {
-      setLogoSrc("/Logo_swapp.svg"); // Si la URL contiene "swapp", cambia el logo
+      setLogoSrc("/Logo_swapp.svg"); 
     } else {
-      setLogoSrc("/Logo_w.svg"); // Si no, usa el logo normal
+      setLogoSrc("/Logo_w.svg"); 
     }
   }, []);
 
   return (
     <div className="relative">
-      {/* Navbar */}
+
       <header className="fixed top-0 w-full h-[80px] bg-[#1F1F1F] shadow-md z-50  items-center px-10 hidden md:flex">
-        {/* Menú Izquierdo */}
+     
         <div className="flex items-center space-x-8">
-          {/* Menú */}
+    
           <div
             className="relative z-50"
             onMouseEnter={() => setIsDesktopMenuOpen(true)}
@@ -109,8 +108,6 @@ const NavbarWithExpandableMenu = () => {
               </div>
             )}
           </div>
-
-          {/* Vehículos */}
           <div
             className="relative z-50"
             onMouseEnter={() => setIsVehiclesMenuOpen(true)}
@@ -118,8 +115,8 @@ const NavbarWithExpandableMenu = () => {
           >
             <button
               className={`relative text-lg font-medium flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-500 ease-in-out
-    ${isVehiclesMenuOpen ? "bg-white text-black shadow-lg" : "text-white"}
-    hover:bg-white hover:text-black hover:shadow-lg`}
+               ${isVehiclesMenuOpen ? "bg-white text-black shadow-lg" : "text-white"}
+               hover:bg-white hover:text-black hover:shadow-lg`}
             >
               <span>Vehículos</span>
             </button>
@@ -131,11 +128,11 @@ const NavbarWithExpandableMenu = () => {
                     {vehicles.map((vehicle) => (
                       <Link key={vehicle.id} href={`/${vehicle.id}`} passHref>
                         <div
-                          className={`p-6 rounded-lg transition-all duration-500 ease-in-out flex flex-col items-center justify-between h-[320px]
+                          className={`p-6 rounded-lg transition-all duration-500 ease-in-out flex flex-col items-center justify-between h-[320px] text-gray-600
                 ${
                   selectedVehicle === vehicle.id
                     ? "bg-white shadow-xl"
-                    : "opacity-50 hover:opacity-100"
+                    : "opacity-50 hover:opacity-100 "
                 }
               `}
                           onMouseEnter={() => setSelectedVehicle(vehicle.id)}
@@ -145,7 +142,7 @@ const NavbarWithExpandableMenu = () => {
                             alt={vehicle.name}
                             className="w-[250px] h-[200px] object-contain"
                           />
-                          <h3 className="mt-4 text-2xl font-bold">
+                          <h3 className="mt-4 text-2xl font-bold ">
                             {vehicle.name}
                           </h3>
                         </div>

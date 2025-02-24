@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <h3 className="text-sm font-semibold text-gray-800 uppercase">Nosotros</h3>
             <ul className="mt-4 space-y-2 text-sm text-gray-600">
-              <li><a href="#" className="hover:text-gray-800">Sobre Silence</a></li>
+              <li><a href="#" className="hover:text-gray-800">Sobre Swapp</a></li>
               <li><a href="#" className="hover:text-gray-800">Careers</a></li>
               <li><a href="#" className="hover:text-gray-800">Proyectos subvencionados</a></li>
               <li><a href="#" className="hover:text-gray-800">Política de calidad y medioambiente</a></li>
@@ -35,7 +35,7 @@ const Footer = () => {
           <div>
             <h3 className="text-sm font-semibold text-gray-800 uppercase">Ecosistema</h3>
             <ul className="mt-4 space-y-2 text-sm text-gray-600">
-              <li><a href="#" className="hover:text-gray-800">App MySilence</a></li>
+              <li><a href="#" className="hover:text-gray-800">App Swapp</a></li>
               <li><a href="#" className="hover:text-gray-800">Batería</a></li>
               <li><a href="#" className="hover:text-gray-800">Battery Station</a></li>
               <li><a href="#" className="hover:text-gray-800">Sharing Acciona</a></li>
@@ -53,9 +53,9 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Logo y Redes Sociales */}
+       
         <div className="mt-10 flex flex-col md:flex-row items-center justify-between border-t border-gray-200 pt-6">
-          {/* Logo */}
+ 
           <Logo2 width={200} />
 
           {/* Redes Sociales */}
